@@ -1,11 +1,16 @@
 import { createHmac } from "crypto";
-import { readFileSync, existsSync } from "fs";
-import path from "path";
 import { NextRequest, NextResponse } from "next/server";
 
 const BOOK_TITLES: Record<string, string> = {
   "unleash-your-super-power": "Unleash Your Super Power",
 };
+
+// Env var name: BOOK_BLOB_<SLUG_UPPERCASED_DASHES_TO_UNDERSCORES>
+// e.g. BOOK_BLOB_UNLEASH_YOUR_SUPER_POWER=https://...vercel-storage.com/...
+function getBlobUrl(bookSlug: string): string | undefined {
+  const key = "BOOK_BLOB_" + bookSlug.toUpperCase().replace(/-/g, "_");
+  return process.env[key];
+}
 
 function verifyToken(
   token: string
@@ -52,30 +57,32 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  const filePath = path.join(
-    process.cwd(),
-    "private",
-    "books",
-    `${verified.bookSlug}.pdf`
-  );
-
-  if (!existsSync(filePath)) {
+  const blobUrl = getBlobUrl(verified.bookSlug);
+  if (!blobUrl) {
     return NextResponse.json(
       { error: "File not found — contact support" },
       { status: 404 }
     );
   }
 
-  const buffer = readFileSync(filePath);
-  const title = BOOK_TITLES[verified.bookSlug] ?? verified.bookSlug;
-  const filename = `${title}.pdf`;
+  // Fetch from Vercel Blob and stream back to the buyer
+  const upstream = await fetch(blobUrl);
+  if (!upstream.ok) {
+    return NextResponse.json(
+      { error: "File unavailable — contact support" },
+      { status: 502 }
+    );
+  }
 
-  return new NextResponse(buffer, {
+  const title = BOOK_TITLES[verified.bookSlug] ?? verified.bookSlug;
+  // Preserve original extension from blob URL (pdf, epub, etc.)
+  const ext = blobUrl.split("?")[0].split(".").pop() ?? "pdf";
+  const filename = `${title}.${ext}`;
+
+  return new NextResponse(upstream.body, {
     headers: {
-      "Content-Type": "application/pdf",
+      "Content-Type": upstream.headers.get("Content-Type") ?? "application/octet-stream",
       "Content-Disposition": `attachment; filename="${filename}"`,
-      "Content-Length": buffer.length.toString(),
-      // Prevent caching of download links
       "Cache-Control": "no-store",
     },
   });
