@@ -5,6 +5,7 @@ import { getBook, getAllBookSlugs } from "@/lib/books";
 import BookQuiz from "@/components/BookQuiz";
 import NewsletterForm from "@/components/NewsletterForm";
 import Reveal from "@/components/Reveal";
+import BuyButton from "@/components/BuyButton";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -81,9 +82,10 @@ export default async function BookPage({ params }: Props) {
               )}
               <div className="flex flex-wrap gap-4">
                 {isAvailable && (
-                  <a href="#buy" className="btn-primary">
-                    Get the book
-                  </a>
+                  <BuyButton
+                    bookSlug={book.slug}
+                    label={`Get the book — ${book.price}`}
+                  />
                 )}
                 {isComingSoon && (
                   <a href="#notify" className="btn-primary">
@@ -256,7 +258,7 @@ export default async function BookPage({ params }: Props) {
               </p>
             </div>
             <div>
-              <BookQuiz quiz={book.quiz} bookStatus={book.status} />
+              <BookQuiz quiz={book.quiz} bookSlug={book.slug} bookStatus={book.status} />
             </div>
           </div>
         </div>
@@ -298,9 +300,10 @@ export default async function BookPage({ params }: Props) {
               The diagnostic showed you where your journey begins. The book shows you how to move.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#" className="btn-primary">
-                Buy the book — {book.price}
-              </a>
+              <BuyButton
+                bookSlug={book.slug}
+                label={`Buy the book — ${book.price}`}
+              />
               <Link href="/coaching" className="btn-secondary">
                 Explore coaching instead
               </Link>

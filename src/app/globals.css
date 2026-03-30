@@ -292,3 +292,30 @@ h4 { font-size: clamp(1rem, 1.25vw, 1.25rem); font-weight: 700; line-height: 1.3
   line-height: 1.5;
   color: #0D1B27;
 }
+
+/* ── Circle of Life game animations ─────────────────────────────────────── */
+@keyframes diceRoll {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25%       { transform: rotate(-15deg) scale(1.1); }
+  50%       { transform: rotate(15deg) scale(0.95); }
+  75%       { transform: rotate(-10deg) scale(1.05); }
+}
+.dice-rolling {
+  animation: diceRoll 0.12s linear infinite;
+}
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.modal-enter {
+  animation: modalEnter 0.28s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+@keyframes fadeInGame {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.fade-in {
+  animation: fadeInGame 0.3s ease both;
+}

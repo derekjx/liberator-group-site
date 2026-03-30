@@ -3,9 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import type { BookQuiz, QuizProfile } from "@/lib/books";
+import BuyButton from "@/components/BuyButton";
 
 interface Props {
   quiz: BookQuiz;
+  bookSlug: string;
   bookStatus: "available" | "coming-soon" | "future";
 }
 
@@ -26,7 +28,7 @@ function resolveProfile(answers: Record<string, string>, profiles: QuizProfile[]
   return top;
 }
 
-export default function BookQuiz({ quiz, bookStatus }: Props) {
+export default function BookQuiz({ quiz, bookSlug, bookStatus }: Props) {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [result, setResult] = useState<QuizProfile | null>(null);
   const [step, setStep] = useState<"intro" | "questions" | "result">("intro");
@@ -291,7 +293,9 @@ export default function BookQuiz({ quiz, bookStatus }: Props) {
             className="flex flex-wrap gap-3 mb-5"
             style={{ animation: "fadeUp 0.5s 0.35s cubic-bezier(0.16,1,0.3,1) both" }}
           >
-            {bookStatus === "available" ? (
+            {bookStatus === "available" && result.ctaHref === "buy" ? (
+              <BuyButton bookSlug={bookSlug} label={result.cta} />
+            ) : bookStatus === "available" ? (
               <a href={result.ctaHref} className="btn-primary">{result.cta}</a>
             ) : (
               <a href={result.ctaHref} className="btn-secondary">{result.cta}</a>

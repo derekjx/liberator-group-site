@@ -141,7 +141,7 @@ export const books: BookData[] = [
           bookSection:
             "Begin with Part Two: Breaking the Golden Handcuffs — specifically the chapter on the identity beneath the income.",
           cta: "Get the book",
-          ctaHref: "#buy",
+          ctaHref: "buy",
           ctaSecondary: "Talk to a coach",
           ctaSecondaryHref: "/coaching",
           triggers: ["handcuffs"],
@@ -156,7 +156,7 @@ export const books: BookData[] = [
           bookSection:
             "Begin at the beginning — Part One: Unleashing Your Super Power is written for exactly where you are.",
           cta: "Get the book",
-          ctaHref: "#buy",
+          ctaHref: "buy",
           ctaSecondary: "Take the free quiz",
           ctaSecondaryHref: "#quiz",
           triggers: ["purpose"],
@@ -171,7 +171,7 @@ export const books: BookData[] = [
           bookSection:
             "Start with Part Three: Silencing the Noise — the chapters on distinguishing your voice from the ones you've borrowed.",
           cta: "Get the book",
-          ctaHref: "#buy",
+          ctaHref: "buy",
           ctaSecondary: "Talk to a coach",
           ctaSecondaryHref: "/coaching",
           triggers: ["noise"],
@@ -186,7 +186,7 @@ export const books: BookData[] = [
           bookSection:
             "Begin with Part Four: Living the Life You Were Born to Live — and the chapter on identity at the threshold.",
           cta: "Get the book",
-          ctaHref: "#buy",
+          ctaHref: "buy",
           ctaSecondary: "Talk to a coach",
           ctaSecondaryHref: "/coaching",
           triggers: ["identity"],

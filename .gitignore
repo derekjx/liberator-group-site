@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Book PDFs — add files here but don't commit large binaries to git
+# Upload PDFs directly via Vercel dashboard or CLI instead
+/private/books/*.pdf
+
 # vercel
 .vercel
 
