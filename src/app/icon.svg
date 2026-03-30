@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#0D1B27"/>
+  <!-- Stylised flame / phoenix rise — three flame tongues -->
+  <!-- Centre flame -->
+  <path d="M32 52 C32 52 20 40 22 28 C24 20 28 16 30 12 C30 12 28 22 32 26 C36 22 34 12 34 12 C36 16 40 20 42 28 C44 40 32 52 32 52Z" fill="url(#fg1)"/>
+  <!-- Left tongue -->
+  <path d="M22 40 C22 40 14 34 16 24 C17 18 20 15 22 12 C22 12 20 20 23 24 C24 18 22 12 22 12 C23 15 26 19 26 26 C26 34 22 40 22 40Z" fill="url(#fg2)" opacity="0.7"/>
+  <!-- Right tongue -->
+  <path d="M42 40 C42 40 50 34 48 24 C47 18 44 15 42 12 C42 12 44 20 41 24 C40 18 42 12 42 12 C41 15 38 19 38 26 C38 34 42 40 42 40Z" fill="url(#fg2)" opacity="0.7"/>
+  <defs>
+    <linearGradient id="fg1" x1="32" y1="12" x2="32" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FD6910"/>
+      <stop offset="100%" stop-color="#E92904"/>
+    </linearGradient>
+    <linearGradient id="fg2" x1="0" y1="12" x2="0" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FD6910"/>
+      <stop offset="100%" stop-color="#E92904"/>
+    </linearGradient>
+  </defs>
+</svg>

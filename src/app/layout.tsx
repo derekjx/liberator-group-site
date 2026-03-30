@@ -28,6 +28,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "LiberatorGroup",
+    title: "LiberatorGroup — Empowering Freedom & Purpose",
+    description:
+      "LiberatorGroup frees capable people from self-limiting beliefs and golden handcuffs — so they can build a life they don't want to retire from.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "LiberatorGroup — Empowering Freedom & Purpose",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "LiberatorGroup — Empowering Freedom & Purpose",
+    description:
+      "LiberatorGroup frees capable people from self-limiting beliefs and golden handcuffs — so they can build a life they don't want to retire from.",
+    images: ["/opengraph-image"],
   },
 };
 
