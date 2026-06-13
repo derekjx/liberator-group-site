@@ -57,9 +57,9 @@ export default function CoachingPage() {
               what becomes available is not a better version of the same life — it is the
               freedom to build one you don&apos;t want to retire from.
             </p>
-            <Link href="#discovery" className="btn-primary">
+            <a href="https://wa.me/971585959681?text=Hi%2C%20I%27m%20interested%20in%20Liberator%20Solutions" target="_blank" rel="noopener noreferrer" className="btn-primary">
               Book a discovery call
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -89,9 +89,9 @@ export default function CoachingPage() {
                 state shifts, the action that was previously impossible becomes the only
                 logical next step.
               </p>
-              <Link href="#discovery" className="btn-outline-dark">
+              <a href="https://wa.me/971585959681?text=Hi%2C%20I%27m%20interested%20in%20Liberator%20Solutions" target="_blank" rel="noopener noreferrer" className="btn-outline-dark">
                 Start with a discovery call
-              </Link>
+              </a>
             </div>
 
             <div>
@@ -179,9 +179,9 @@ export default function CoachingPage() {
                 Corporate engagements begin with a diagnostic conversation — not a generic
                 proposal, but a specific response to the actual situation in the organisation.
               </p>
-              <Link href="#discovery" className="btn-outline-dark">
+              <a href="https://wa.me/971585959681?text=Hi%2C%20I%27m%20interested%20in%20Liberator%20Solutions" target="_blank" rel="noopener noreferrer" className="btn-outline-dark">
                 Enquire about corporate programmes
-              </Link>
+              </a>
             </div>
 
             <div style={{ order: 1 }}>
@@ -310,7 +310,9 @@ export default function CoachingPage() {
             say so. If it is not, we will say that too.
           </p>
           <a
-            href="mailto:hello@liberatorgroup.com"
+            href="https://wa.me/971585959681?text=Hi%2C%20I%27m%20interested%20in%20Liberator%20Solutions"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-primary"
           >
             Request a discovery call
@@ -322,7 +324,7 @@ export default function CoachingPage() {
               color: "rgba(255,255,255,0.3)",
             }}
           >
-            Or email us directly at hello@liberatorgroup.com
+            Or email us at hello@liberatorgroup.com
           </p>
         </div>
       </section>

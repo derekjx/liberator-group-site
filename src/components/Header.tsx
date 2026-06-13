@@ -51,9 +51,9 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/coaching#discovery" className="btn-primary text-sm py-3 px-6">
+          <a href="https://wa.me/971585959681?text=Hi%2C%20I%27m%20interested%20in%20Liberator%20Solutions" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-3 px-6">
             Book a call
-          </Link>
+          </a>
         </nav>
 
         {/* Mobile menu button */}
@@ -84,9 +84,9 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/coaching#discovery" onClick={() => setOpen(false)} className="btn-primary text-center mt-2">
+          <a href="https://wa.me/971585959681?text=Hi%2C%20I%27m%20interested%20in%20Liberator%20Solutions" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="btn-primary text-center mt-2">
             Book a call
-          </Link>
+          </a>
         </div>
       )}
     </header>

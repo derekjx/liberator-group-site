@@ -6,7 +6,6 @@ const links = [
   { href: "/books", label: "Books" },
   { href: "/blog", label: "Blog" },
   { href: "/coaching", label: "Coaching" },
-  { href: "/coaching#discovery", label: "Book a Call" },
 ];
 
 export default function Footer() {
@@ -42,6 +41,15 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href="https://wa.me/971585959681?text=Hi%2C%20I%27m%20interested%20in%20Liberator%20Solutions"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ fontSize: "0.9rem" }}
+                className="hover:text-white transition-colors"
+              >
+                Book a Call
+              </a>
             </nav>
           </div>
 
