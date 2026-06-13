@@ -3,11 +3,6 @@ import { Resend } from "resend";
 import { createHmac } from "crypto";
 import { NextRequest, NextResponse } from "next/server";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2026-03-25.dahlia",
-});
-const resend = new Resend(process.env.RESEND_API_KEY!);
-
 // Must disable body parsing — Stripe needs the raw body for signature verification
 export const config = { api: { bodyParser: false } };
 
@@ -90,6 +85,11 @@ function buildEmailHtml(
 }
 
 export async function POST(req: NextRequest) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: "2026-03-25.dahlia",
+  });
+  const resend = new Resend(process.env.RESEND_API_KEY!);
+
   const body = await req.text();
   const sig = req.headers.get("stripe-signature");
 
