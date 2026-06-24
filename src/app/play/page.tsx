@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { GameProvider } from "@/lib/game/game-context";
-import SetupScreen from "@/components/game/SetupScreen";
-import GameScreen from "@/components/game/GameScreen";
-import { useGame } from "@/lib/game/game-context";
+import { GameProvider } from "@/shared/circle-of-life-engine/lib/game-context";
+import SetupScreen from "@/shared/circle-of-life-engine/components/SetupScreen";
+import GameScreen from "@/shared/circle-of-life-engine/components/GameScreen";
+import { useGame } from "@/shared/circle-of-life-engine/lib/game-context";
 
 // ── Lead gate ────────────────────────────────────────────────────────────────
 

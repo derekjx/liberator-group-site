@@ -1,0 +1,3 @@
+[submodule "src/shared/circle-of-life-engine"]
+	path = src/shared/circle-of-life-engine
+	url = https://github.com/derekjx/circle-of-life-engine.git
