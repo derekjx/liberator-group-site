@@ -1,8 +1,6 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
-
 export async function POST(req: NextRequest) {
   try {
     const { name, phone, email } = await req.json();
@@ -13,6 +11,7 @@ export async function POST(req: NextRequest) {
 
     const ownerEmail = process.env.OWNER_EMAIL;
     if (ownerEmail) {
+      const resend = new Resend(process.env.RESEND_API_KEY!);
       await resend.emails.send({
         from: process.env.RESEND_FROM ?? "LiberatorGroup <books@liberatorgroup.com>",
         to: ownerEmail,
