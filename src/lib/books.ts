@@ -40,6 +40,9 @@ export interface BookData {
   title: string;
   subtitle: string;
   price?: string;
+  /** Path to the cover image, e.g. "/covers/rise-above.jpg" (public/) or a full URL. Falls back to a text placeholder when omitted. */
+  coverImage?: string;
+  format?: string;
   tagline: string;
   description: string;
   forYouIf: string[];

@@ -39,14 +39,21 @@ export default function NewsletterForm({
         onChange={(e) => setEmail(e.target.value)}
         placeholder={placeholder}
         style={{
-          flex: 1,
+          flexGrow: 1,
+          flexShrink: 1,
+          flexBasis: "0%",
           backgroundColor: "rgba(255,255,255,0.07)",
-          border: "1px solid rgba(255,255,255,0.15)",
-          color: "#FFFFFF",
-          padding: compact ? "0.7rem 1rem" : "0.875rem 1.25rem",
+          borderWidth: "1px",
+          borderStyle: "solid",
+          borderColor: "rgba(255,255,255,0.15)",
+          color: "rgb(255, 255, 255)",
+          paddingTop: compact ? "0.7rem" : "0.875rem",
+          paddingBottom: compact ? "0.7rem" : "0.875rem",
+          paddingLeft: compact ? "1rem" : "1.25rem",
+          paddingRight: compact ? "1rem" : "1.25rem",
           fontSize: "0.9rem",
-          fontFamily: "'Jost', sans-serif",
-          outline: "none",
+          fontFamily: "Jost, sans-serif",
+          outlineStyle: "none",
         }}
       />
       <button

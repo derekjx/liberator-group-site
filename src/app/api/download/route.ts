@@ -1,9 +1,6 @@
 import { createHmac } from "crypto";
 import { NextRequest, NextResponse } from "next/server";
-
-const BOOK_TITLES: Record<string, string> = {
-  "unleash-your-super-power": "Unleash Your Super Power",
-};
+import { getBook } from "@/lib/books";
 
 // Env var name: BOOK_BLOB_<SLUG_UPPERCASED_DASHES_TO_UNDERSCORES>
 // e.g. BOOK_BLOB_UNLEASH_YOUR_SUPER_POWER=https://...vercel-storage.com/...
@@ -74,7 +71,7 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  const title = BOOK_TITLES[verified.bookSlug] ?? verified.bookSlug;
+  const title = getBook(verified.bookSlug)?.title ?? verified.bookSlug;
   // Preserve original extension from blob URL (pdf, epub, etc.)
   const ext = blobUrl.split("?")[0].split(".").pop() ?? "pdf";
   const filename = `${title}.${ext}`;

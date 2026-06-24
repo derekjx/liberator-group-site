@@ -98,6 +98,24 @@ export default function BooksPage() {
                   }}
                 >
                   <div>
+                    {book.coverImage && (
+                      <div
+                        style={{
+                          aspectRatio: "2/3",
+                          width: 96,
+                          overflow: "hidden",
+                          marginBottom: "1.5rem",
+                          border: "1px solid rgba(233,41,4,0.2)",
+                        }}
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={book.coverImage}
+                          alt={`${book.title} cover`}
+                          style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                        />
+                      </div>
+                    )}
                     <p
                       className="eyebrow mb-5"
                       style={{

@@ -74,10 +74,18 @@ export default async function BookPage({ params }: Props) {
                     fontFamily: "'Playfair Display', Georgia, serif",
                     fontSize: "1.75rem",
                     color: "#FD6910",
-                    marginBottom: "2rem",
+                    marginBottom: book.format ? "0.5rem" : "2rem",
                   }}
                 >
                   {book.price}
+                </p>
+              )}
+              {book.format && (
+                <p
+                  className="eyebrow"
+                  style={{ color: "rgba(255,255,255,0.4)", marginBottom: "2rem" }}
+                >
+                  {book.format}
                 </p>
               )}
               <div className="flex flex-wrap gap-4">
@@ -98,52 +106,70 @@ export default async function BookPage({ params }: Props) {
               </div>
             </div>
 
-            {/* Book cover placeholder */}
-            <div
-              style={{
-                aspectRatio: "2/3",
-                maxHeight: 420,
-                background: "linear-gradient(145deg, #2B3F51, #0D1B27)",
-                border: "1px solid rgba(233,41,4,0.25)",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                padding: "2rem",
-                textAlign: "center",
-              }}
-            >
+            {/* Book cover */}
+            {book.coverImage ? (
               <div
                 style={{
-                  width: 48,
-                  height: 3,
-                  background: "linear-gradient(90deg, #E92904, #FD6910)",
-                  marginBottom: "1.5rem",
-                }}
-              />
-              <p
-                style={{
-                  fontFamily: "'Playfair Display', Georgia, serif",
-                  fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
-                  color: "#FFFFFF",
-                  lineHeight: 1.3,
-                  marginBottom: "1rem",
+                  aspectRatio: "2/3",
+                  maxHeight: 420,
+                  border: "1px solid rgba(233,41,4,0.25)",
+                  overflow: "hidden",
                 }}
               >
-                {book.title}
-              </p>
-              <p
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={book.coverImage}
+                  alt={`${book.title} cover`}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              </div>
+            ) : (
+              <div
                 style={{
-                  fontFamily: "'Jost', sans-serif",
-                  fontSize: "0.7rem",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.35)",
+                  aspectRatio: "2/3",
+                  maxHeight: 420,
+                  background: "linear-gradient(145deg, #2B3F51, #0D1B27)",
+                  border: "1px solid rgba(233,41,4,0.25)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "2rem",
+                  textAlign: "center",
                 }}
               >
-                LiberatorGroup
-              </p>
-            </div>
+                <div
+                  style={{
+                    width: 48,
+                    height: 3,
+                    background: "linear-gradient(90deg, #E92904, #FD6910)",
+                    marginBottom: "1.5rem",
+                  }}
+                />
+                <p
+                  style={{
+                    fontFamily: "'Playfair Display', Georgia, serif",
+                    fontSize: "clamp(1.1rem, 2vw, 1.5rem)",
+                    color: "#FFFFFF",
+                    lineHeight: 1.3,
+                    marginBottom: "1rem",
+                  }}
+                >
+                  {book.title}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "'Jost', sans-serif",
+                    fontSize: "0.7rem",
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.35)",
+                  }}
+                >
+                  LiberatorGroup
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </section>

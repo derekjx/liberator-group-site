@@ -2,6 +2,7 @@ import Stripe from "stripe";
 import { Resend } from "resend";
 import { createHmac } from "crypto";
 import { NextRequest, NextResponse } from "next/server";
+import { getBook } from "@/lib/books";
 
 // Must disable body parsing — Stripe needs the raw body for signature verification
 export const config = { api: { bodyParser: false } };
@@ -125,10 +126,7 @@ export async function POST(req: NextRequest) {
       process.env.NEXT_PUBLIC_BASE_URL ?? "https://www.liberatorgroup.com";
     const downloadUrl = `${baseUrl}/api/download?token=${token}`;
 
-    const bookTitles: Record<string, string> = {
-      "unleash-your-super-power": "Unleash Your Super Power",
-    };
-    const bookTitle = bookTitles[bookSlug] ?? bookSlug;
+    const bookTitle = getBook(bookSlug)?.title ?? bookSlug;
 
     const { error } = await resend.emails.send({
       from: process.env.RESEND_FROM ?? "LiberatorGroup <books@liberatorgroup.com>",
