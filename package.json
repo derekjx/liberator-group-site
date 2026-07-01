@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sync-engine": "powershell -NoProfile -Command \"Copy-Item -Recurse -Force 'C:/Users/HP/OneDrive/Documents/Circle Of Life/app/shared/circle-of-life-engine' 'src/shared/circle-of-life-engine'\""
   },
   "dependencies": {
     "@vercel/blob": "^2.3.2",
